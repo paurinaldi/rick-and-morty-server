@@ -1,9 +1,8 @@
-import express from "express";
+import express from 'express';
+import controllers from '../controllers/characters';
 
 const router = express.Router();
 
-router.get("/characters", (req, res) => {
-  res.json({ message: "Characters route" });
-});
+router.route('/characters/:sortBy').get(controllers.getSortedCharacters);
 
 export default router;

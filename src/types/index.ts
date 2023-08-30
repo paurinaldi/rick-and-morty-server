@@ -2,6 +2,7 @@ export interface User {
   firebaseUid?: string;
   email: string;
   name: string;
+  favoriteCharacters?: string[];
 }
 
 export interface BodyResponse<T> {
@@ -10,19 +11,23 @@ export interface BodyResponse<T> {
   error: boolean;
 }
 
-export class CustomError extends Error {
-  status!: number;
-  message!: string;
-  data?: undefined | Record<string, unknown>;
-
-  constructor(
-    status = 500,
-    message: string,
-    data: undefined | Record<string, unknown> = undefined
-  ) {
-    super();
-    this.status = status;
-    this.message = message;
-    this.data = data;
-  }
+export interface Character {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
+  image: string;
+  episode: string[];
+  url: string;
+  created: string;
 }
