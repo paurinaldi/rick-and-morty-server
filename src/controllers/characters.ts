@@ -8,10 +8,12 @@ const getSortedCharacters = async (
 ) => {
   try {
     const response = await axios.get(
-      'https://rickandmortyapi.com/api/character'
+      `https://rickandmortyapi.com/api/character/?page=${req.params.page}`
     );
     const data: Character[] = response.data.results;
-
+    console.log(
+      `https://rickandmortyapi.com/api/character/?page=${req.params.page}`
+    );
     const sortBy = req.params.sortBy;
 
     switch (sortBy) {

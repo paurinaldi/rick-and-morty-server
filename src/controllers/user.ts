@@ -16,7 +16,7 @@ const getAllUsers = async (
       error: false,
     });
   } catch (error: any) {
-    return res.status(error.status).json({
+    return res.status(500).json({
       message: error.message,
       error: true,
       data: undefined,
@@ -53,7 +53,7 @@ const createUser = async (req: Request, res: Response<BodyResponse<User>>) => {
       error: false,
     });
   } catch (error: any) {
-    return res.status(error.status).json({
+    return res.status(500).json({
       message: error.message,
       error: true,
     });
@@ -90,7 +90,7 @@ const updateFavoriteCharacter = async (
       error: false,
     });
   } catch (error: any) {
-    return res.status(error.status).json({
+    return res.status(500).json({
       message: error.message,
       error: true,
       data: undefined,
